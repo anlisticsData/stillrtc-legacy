@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_refresh"
+        android:icon="@drawable/ic_google_maps_128"
+        android:title="@string/btn_settings"
+
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:icon="@drawable/ic_settings_white_24dp"
+        android:title="@string/btn_settings"
+        app:showAsAction="always">
+        <menu>
+
+
+
+
+
+
+            <item
+                android:id="@+id/action_close_app"
+                android:icon="@drawable/ic_close_light"
+                android:title="@string/str_encerar"
+                app:showAsAction="always" />
+        </menu>
+    </item>
+</menu>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <title>Google Maps Multiple Markers</title> 
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfXgMUO82be1sHgJlXHdg4JkTgN7qtm-M&callback=initMap"
+          type="text/javascript"></script>
+
+  <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+  </style>
+</head> 
+<body>
+  <div id="map"></div>
+
+  <script type="text/javascript">
+    var locations = [
+      ['-23.519399, -46.511973', -23.619399, -46.511973, 1],
+      ['-23.520747, -46.511319', -23.620747, -46.511319, 2],
+      ['-23.521859, -46.511319', -23.621859, -46.511319, 3],
+      ['-23.522537, -46.510267', -23.622537, -46.510267, 5],
+      ['-23.521485, -46.509988', -23.621485, -46.509988, 6],
+      ['-23.520679, -46.506623', -23.620679, -46.506623, 7],
+      ['-23.521810, -46.506988', -23.621810, -46.506988, 11],
+      ['-23.520679, -46.506602', -23.620679, -46.506602, 12],
+      ['-23.522135, -46.506451', -23.622135, -46.506451, 13],
+      ['-23.520708, -46.505411', -23.620708, -46.505411, 14],
+      ['-23.521938, -46.504831', -23.621938, -46.504831, 15],
+      ['-23.521248, -46.508442', -23.621248, -46.508442, 20],
+      ['-23.523011, -46.506408', -23.623011, -46.506408, 21],
+      ['-23.522794, -46.508779', -23.622794, -46.508779, 22],
+      ['-23.523001, -46.508071', -23.623001, -46.508071, 23],
+      ['-23.520718, -46.504412', -23.620718, -46.504412, 23],       
+      
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: new google.maps.LatLng(-23.620128, -46.508646),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    // Define the LatLng coordinates for the polygon.
+        var triangleCoords = [
+        {lat: -23.636403,  lng: -46.503075},
+        {lat: -23.626967, lng: -46.517365},
+            {lat: -23.615097, lng: -46.520088},  
+
+
+
+            {lat: -23.610898, lng: -46.512077},  //-23.611003, -46.499942
+
+
+            {lat: -23.611003, lng: -46.499942},
+
+            {lat: -23.624002, lng: -46.497927},
+
+            {lat: -23.631492, lng: -46.503023},
+            
+
+
+
+
+        ];
+
+        // Construct the polygon.
+        var bermudaTriangle = new google.maps.Polygon({
+          paths: triangleCoords,
+          strokeColor: '#02a2f2',
+          strokeOpacity: 0.8,
+          strokeWeight: 3,
+          fillColor: '#02a2f2',
+          fillOpacity: 0.06
+        });
+        bermudaTriangle.setMap(map);
+
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        animation: google.maps.Animation.DROP,
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+
+          //infowindow.setContent("<img src='https://www.gravatar.com/avatar/6cf2282285b6732cd55dc466492e6dca?s=200'>");
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        //   if (marker.getAnimation() !== null) {
+        //   marker.setAnimation(null);
+        // } else {
+        //   marker.setAnimation(google.maps.Animation.BOUNCE);
+        // }
+        }
+      })(marker, i));
+    }
+
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(-23.620128, -46.508646),
+      icon: 'logo.png', 
+      map: map
+    });
+
+
+   var images = [
+      ['imagem1.jpg', -23.622713, -46.507553, 4],
+      ['imagem2.jpg', -23.619066, -46.505740, 3]      
+    ];
+
+
+  for (i = 0; i < images.length; i++) {  
+    var icon = {
+      url: images[i][0], // url
+      scaledSize: new google.maps.Size(38, 38), // scaled size
+      origin: new google.maps.Point(0,0), // origin
+      anchor: new google.maps.Point(0, 0) // anchor
+    };
+
+
+     var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(images[i][1], images[i][2]),
+      icon: icon,
+      map: map
+    });
+
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+
+          var content = "<img width='140' src="+images[i][0]+" />";
+
+          //infowindow.setContent("<img src='https://www.gravatar.com/avatar/6cf2282285b6732cd55dc466492e6dca?s=200'>");
+          infowindow.setContent(content);
+          infowindow.open(map, marker);
+        //   if (marker.getAnimation() !== null) {
+        //   marker.setAnimation(null);
+        // } else {
+        //   marker.setAnimation(google.maps.Animation.BOUNCE);
+        // }
+        }
+      })(marker, i));
+   }
+
+
+
+
+              
+      
+  </script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple markers</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+      function initMap() {
+        var myLatLng = {lat: -25.363, lng: 131.044, lat: -25.3798, lng: 132.044};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfXgMUO82be1sHgJlXHdg4JkTgN7qtm-M&callback=initMap">
+    </script>
+  </body>
+</html> -->

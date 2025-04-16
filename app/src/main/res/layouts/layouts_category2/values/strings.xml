@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="manter_conectado">Manter conectado</string>
+    <string name="title_supervisor">Supervisor</string>
+    <string name="str_detalhe_operation">Detalhes da Operação</string>
+    <string name="str_operation_empty">Não Há Operação Associadas ao Supervisor..!</string>
+    <string name="str_operation_empty_points">Não Há lançamento de Gps no Momento..!</string>
+    <string name="title_acessos">Acessos</string>
+    <string name="title_operacao_simultaneas">Operações Simultaneas</string>
+    <string name="ops_simultaneas">Operações Simultaneas.</string>
+    <string name="str_encerar">Encerar</string>
+    <string name="pco_grafica">Pco - Grafica</string>
+    <string name="rtc_controle">Rtc-Controle</string>
+    <string name="still_pco_title_menu">Still-PCO</string>
+    <string name="preenchidos_corretamente">Todos os Campos devem ser Preenchidos, corretamente.</string>
+    <string name="finalizar">Finalizar</string>
+    <string name="seja_bem_vindo">Seja Bem Vindo</string>
+    <string name="grf_msn_systema_alert">Messagem do Sistema.</string>
+    <string name="create_retirada_grafica">Criando Retirada da Grafica..</string>
+    <string name="grf_invalido">Campo de Retirada Inválido</string>
+    <string name="processando_aguade">Aguarde...</string>
+    <string name="sys_error_msn_devices">Erro as Criar a Chave do Dispositivo.</string>
+    <string name="sys_msn_aviso">Aviso do Sistema..!</string>
+    <string name="sys_device_regs_sucess">Dispositivo Registrado com Sucesso.!</string>
+    <string name="sys_not_valid_user">Error Ao Validar Usuario.!</string>
+    <string name="sys_processando_agarde">Aguarde Por Favor...</string>
+    <string name="msn_title">Aviso</string>
+    <string name="not_conect">Falha na Conexão..!</string>
+    <string name="title_operacao_configurations">Configuração do real time control</string>
+    <string name="cadastrasenext">Avançar</string>
+    <string name="termos_aceitos">Este Termo de Uso e Declaração de Privacidade da Política de Proteção de Dados Pessoais da StillDistribuidora contém informações sobre a coleta de Dados Pessoais realizados pela StillDistribuidora, durante o acesso e a utilização dos Serviços  no Nossos Aplicativo(s).\n\nEm atenção a legislação aplicável, por meio das quais o Usuário ou Titular dos Dados poderá acessar os nossos recursos disponibilizados pela Companhia, de forma a esclarecer suas obrigações e responsabilidades de seus Usuários. || Este Termo de Uso e Declaração de Privacidade da Política de Proteção de Dados Pessoais da StillDistribuidora contém informações sobre a coleta de Dados Pessoais realizados pela StillDistribuidora, durante o acesso e a utilização dos Serviços  no Nossos Aplicativo(s).\n\nEm atenção a legislação aplicável, por meio das quais o Usuário ou Titular dos Dados poderá acessar os nossos recursos disponibilizados pela Companhia, de forma a esclarecer suas obrigações e responsabilidades de seus Usuários.|| Este Termo de Uso e Declaração de Privacidade da Política de Proteção de Dados Pessoais da StillDistribuidora contém informações sobre a coleta de Dados Pessoais realizados pela StillDistribuidora, durante o acesso e a utilização dos Serviços  no Nossos Aplicativo(s).\n\nEm atenção a legislação aplicável, por meio das quais o Usuário ou Titular dos Dados poderá acessar os nossos recursos disponibilizados pela Companhia, de forma a esclarecer suas obrigações e responsabilidades de seus Usuários.||| Este Termo de Uso e Declaração de Privacidade da Política de Proteção de Dados Pessoais da StillDistribuidora contém informações sobre a coleta de Dados Pessoais realizados pela StillDistribuidora, durante o acesso e a utilização dos Serviços  no Nossos Aplicativo(s).\n\nEm atenção a legislação aplicável, por meio das quais o Usuário ou Titular dos Dados poderá acessar os nossos recursos disponibilizados pela Companhia, de forma a esclarecer suas obrigações e responsabilidades de seus Usuários.</string>
+    <string name="termos_ok">Aceito os Termos de Serviços</string>
+    <string name="termos_ok_contas">Eu autorizo verificar meus dados bancarios</string>
+
+    <string name="str_obr_name">Campo de Nome é Obrigatorio.!\n</string>
+    <string name="str_obr_lastname">Campo de SobreNome é Obrigatorio.!</string>
+    <string name="str_obr_cpf">Campo de CPF é Obrigatorio.!\n</string>
+    <string name="str_obr_cpf_invalido">Campo de CPF é Informado é inválido.!\n</string>
+    <string name="str_obr_mobliephone">Campo de Telefone é Obrigatorio.!</string>
+    <string name="str_obr_email">Campo de E-mail é Obrigatorio.!\n</string>
+    <string name="str_obr_email_invalide">Campo de E-mail é Invalido.!\n</string>
+
+
+    <string name="str_obr_password">Campo de Senha é Obrigatorio.!\n</string>
+
+    <string name="str_obr_address">Campo de Endereço é Obrigatorio.!\n</string>
+    <string name="obrigatorio">Campos Obrigatório.</string>
+    <string name="error_processed_register">Erro ao Processar Registro.</string>
+    <string name="enterContactSuport">Ligue para a Nossa Equipe.</string>
+    <string name="register_sucesso">Cadastro Realizado com Sucesso.!</string>
+    <string name="register_sucesso_mensagen">Parabéns, por fazer parte da StillDistribuidora.!</string>
+    <string name="str_parceiro">Novo Parceiro (Still).</string>
+    <string name="next">Avançar</string>
+    <string name="termos_pix">Pix</string>
+    <string name="termos_cc">Conta Bancaria</string>
+    <string name="str_next">Próximo</string>
+    <string name="str_obr_anme_bank">Nome do Banco Obrigatório.</string>
+    <string name="str_obr_pix_key">Chave Pix Obrigatório.</string>
+    <string name="str_obr_agency">Agencia Obrigatório.</string>
+    <string name="str_obr_agency_accont">Conta Obrigatória.</string>
+    <string name="notAddress">Não Há  Endereços para Busca..!</string>
+    <string name="dados_financeiros">Dados financeiros</string>
+    <string name="detalhes_de_dados_financeiros">
+        Antes de prosseguir, esteja ciente sobre os nossos termos e políticas. Os dados financeiros
+        informados estarão sujeitos à análise para comprovação de autenticidade.
+    </string>
+    <string name="not_operations_disponibilized">Não Há Operações Disponiveis.</string>
+    <string name="str_title_group_address">Dados do Inicio da Distribuição</string>
+    <string name="voc_n_o_tem_opera_es_selecionadas">Você não Tem Operações Selecionadas..!</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancelar</string>
+    <string name="termos_cc_finalizacao_operation">
+
+        Ao Finalizar , A Operação Será Avaliado , com Relação a Rota Feita .
+
+
+
+
+
+    </string>
+    <string name="str_error_operations_finish">Error ao Finalizar Operação</string>
+    <string name="dialog_message">Aviso</string>
+    <string name="start">Usar Moedas</string>
+    <string name="reset">Recuperar Senha</string>
+    <string name="navegar">Google Maps</string>
+    <string name="title_permissions_still_app">Permisões do Still Rtc</string>
+    <string name="privacy">https://stillapp.com.br/privacy-policy</string>
+    <string name="reset_passord">Para Altear a  Senha será Necessário a Validação do Usuário, Fornecendo\n o Email e Cpf ou Cnpj Cadastrado para Alterar a Senha..</string>
+    <string name="emailinvalid">Campo de  Email  Obrigatório</string>
+    <string name="cpfInvalide">Campo de  Cpf  Obrigatório</string>
+    <string name="sys">Still Distribuidor.</string>
+    <string name="newPasswordInvalid">Nova Senha Inválida..!</string>
+    <string name="VERSION_APP">V.1.0</string>
+    <string name="OPERATION_RELEASED">OPERAÇÂO LIBERADA</string>
+    <string name="WAITING_RELEASE">AGUARDANDO LIBERAÇÂO</string>
+    <string name="OPERATION_CANCELED">OPERAÇAO CANCELADA (você)</string>
+    <string name="OPERATION_COMPLETED">"OPERAÇAO FINALIZADA "</string>
+    <string name="OPERATION_CANCELED_ADMINISTRATOR">OPERAÇAO CANCELADA (Administrador)\n</string>
+    <string name="IN_PROGRESS">EM ANDAMENTO (*)</string>
+    <string name="continue_router">Dar outra Volta.?</string>
+    <string name="cancel_finalizar">Finalizar operação</string>
+    <string name="n_o_h_audio_nesta_opera_o">Não há Audio nesta Operação.!</string>
+    <string name="necess_rio_conferir_o_udio">É Necessário conferir o Áudio.</string>
+    <string name="a_o_cancelada">Ação Cancelada.</string>
+    <string name="n_o_h_dispositivo_livres_no_momento_para_continuar_em_outra_opera_o">Não há Dispositivo Livres no Momento. para Continuar em Outra Operação.</string>
+    <string name="fechar">Fechar</string>
+    <string name="executando">Executando..</string>
+    <string name="iniciar"><![CDATA["Iniciar >> "]]></string>
+
+
+</resources>

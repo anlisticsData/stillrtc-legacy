@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/system_last"
+        android:title="Voltar" app:showAsAction="ifRoom">
+        <!-- "file" submenu -->
+
+    </item>
+
+    <item android:id="@+id/system_close"
+        android:title="Fechar" android:icon="@drawable/ic_baseline_close_24">
+        <!-- "file" submenu -->
+
+    </item>
+
+
+
+
+</menu>

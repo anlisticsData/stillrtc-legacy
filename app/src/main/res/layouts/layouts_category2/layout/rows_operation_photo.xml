@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:background="@drawable/borda_arredondada_card_normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:padding="5dp"
+            android:id="@+id/send_file"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="262dp"
+            android:id="@+id/image_file"
+            android:src="@drawable/entregas_carts" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/create_file"
+            android:textSize="20dp"
+            android:padding="5dp"
+            android:text="02-05-2022 171102"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

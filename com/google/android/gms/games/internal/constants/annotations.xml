@@ -1,0 +1,5 @@
+<root>
+    <item name='com.google.android.gms.games.internal.constants.NotificationChannel'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>

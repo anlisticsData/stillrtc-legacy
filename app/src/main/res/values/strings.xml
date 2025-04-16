@@ -1,0 +1,92 @@
+<resources>
+    <string name="app_name">SoundCar</string>
+    <string name="title_activity_maps">SoundCar 1.0</string>
+    <string name="identificador">Identificador</string>
+    <string name="login">Entrar</string>
+    <string name="gotoback">Voltar </string>
+    <string name="senha">Senha</string>
+
+
+    <string name="alert_title_gps_disable">Habilitar GPS</string>
+    <string name="alert_content_gps_disable">Os serviços de localização estão desativados. Deseja ativa-los para registrar as atividades no Still RTC?</string>
+    <string name="btn_enable">Habilitar</string>
+    <string name="btn_cancel">Cancelar</string>
+
+    <string name="alert_title_discard">Descartar entrega</string>
+    <string name="alert_content_discard">Ao descartar, todas as informações da entrega serão perdidas</string>
+    <string name="btn_discard">Descartar</string>
+
+    <string name="error_fields_empty">Todos os campos devem ser preenchidos corretamente</string>
+    <string name="btn_finish">Finalizar</string>
+    <string name="btn_save">Salvar</string>
+
+
+    <string name="alert_info_date">Data:</string>
+    <string name="alert_info_start">Início:</string>
+    <string name="alert_info_end">Fim:</string>
+    <string name="alert_info_time_operation">Tmp. de Operação:</string>
+    <string name="alert_info_time_all">Tmp. Total:</string>
+    <string name="alert_info_pictures">Fotos:</string>
+    <string name="alert_info_km_traveled">KM percorridos:</string>
+
+    <string name="alert_title_delivery">Informações da operação</string>
+
+
+    <string name="title_activity_delivery_fragments">Operações</string>
+    <string name="title_stores">Lojas</string>
+    <string name="title_deliveres">Operações</string>
+    <string name="title_maps">Mapa RTC</string>
+
+    <string name="str_in_progress">Em andamento</string>
+    <string name="str_pending">Pendente</string>
+    <string name="str_finalized">Finalizado</string>
+    <string name="str_picture">Foto</string>
+    <string name="str_version">Versão: </string>
+    <string name="str_version_dvl">\nDesenvolvimento</string>
+
+
+    <string name="str_client_store">Client/Loja</string>
+    <string name="str_operation">Operação</string>
+    <string name="str_area">Área</string>
+    <string name="str_group">Grupo</string>
+
+    <string name="btn_continue">Continuar</string>
+
+    <string name="alert_title_choose_a_option">Escolha uma opção</string>
+
+    <string name="alert_info_no_delivery">Não existe nenhuma operação nesta data. Por favor, selecione outra data!</string>
+    <string name="alert_info_client_no_stores">Você não possui nenhuma loja cadastrada em nosso sistema!</string>
+
+    <string name="alert_info_loading_operations">Buscando operaçoes&#8230;</string>
+    <string name="alert_info_send_date">Enviado dados&#8230;</string>
+
+
+    <string name="str_title_datepicker">Selecione uma data</string>
+
+    <string name="str_localization">localização.</string>
+    <string name="str_camera">camera.</string>
+    <string name="str_read_white_storage">sua memória interna.</string>
+
+    <string name="alert_info_loading_update">Buscando atualizações&#8230;</string>
+
+    <string name="btn_logout">Sair</string>
+    <string name="btn_change_password">Alterar senha</string>
+    <string name="btn_settings">Configurações</string>
+
+    <string name="str_hint_pwd_current">Senha atual</string>
+    <string name="str_hint_new_pwd">Nova senha</string>
+    <string name="str_hint_repeat_pwd">Repita nova senha</string>
+
+    <string name="str_info_pws_not_match">As senhas inseridas não conferem.</string>
+    <string name="str_info_auth_incorrect">Suas credenciais estão incorretas. Por favor, tente novamente!</string>
+
+    <string name="alert_info_loading_current_localization">Sua localização atual está sendo definida&#8230;</string>
+
+    <string name="alert_info_loading_current_area">Buscando área de operação&#8230;</string>
+
+    <string name="alert_info_error_connection">Ocorreu um erro ao acessar o servidor! Verifique sua conexão com internet e tente novamente</string>
+
+
+
+
+</resources>

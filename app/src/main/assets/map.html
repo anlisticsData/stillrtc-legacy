@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <title>Google Maps Multiple Markers</title> 
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfXgMUO82be1sHgJlXHdg4JkTgN7qtm-M&callback=initMap"
+          type="text/javascript"></script>
+
+  <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+  </style>
+</head> 
+<body>
+  <div id="map"></div>
+
+  <script type="text/javascript">
+    var locations = [
+      ['-23.519399, -46.511973', -23.519399, -46.511973, 1],
+      ['-23.520747, -46.511319', -23.520747, -46.511319, 2],
+      ['-23.521859, -46.511319', -23.521859, -46.511319, 3],
+      ['-23.523561, -46.511394', -23.523561, -46.511394, 4],
+      ['-23.522537, -46.510267', -23.522537, -46.510267, 5],
+      ['-23.521485, -46.509988', -23.521485, -46.509988, 6],
+      ['-23.520679, -46.506623', -23.520679, -46.506623, 7],
+
+      ['-23.520029, -46.509724', -23.520029, -46.509724, 8],
+      ['-23.523994, -46.509531', -23.523994, -46.509531, 10],
+      ['-23.521810, -46.506988', -23.521810, -46.506988, 11],
+      ['-23.520679, -46.506602', -23.520679, -46.506602, 12],
+      ['-23.522135, -46.506451', -23.522135, -46.506451, 13],
+      ['-23.520708, -46.505411', -23.520708, -46.505411, 14],
+      ['-23.521938, -46.504831', -23.521938, -46.504831, 15],
+      ['-23.521248, -46.508442', -23.521248, -46.508442, 20],
+      ['-23.523011, -46.506408', -23.523011, -46.506408, 21],
+      ['-23.522794, -46.508779', -23.522794, -46.508779, 22],
+      ['-23.523001, -46.508071', -23.523001, -46.508071, 23],
+      ['-23.520718, -46.504412', -23.520718, -46.504412, 23],
+      ['-23.517912, -46.514490', -23.517912, -46.514490, 24],  
+      ['-23.521217, -46.514018', -23.521217, -46.514018, 25],            
+     ['-23.524995, -46.513246', -23.524995, -46.513246, 26],      
+     ['-23.526726, -46.508654', -23.526726, -46.508654, 27],            
+     ['-23.525939, -46.502088', -23.525939, -46.502088, 28] ,
+      ['-23.520076, -46.500972', -23.520076, -46.500972, 29],          
+     ['-23.517440, -46.506122', -23.517440, -46.506122, 30],         
+     ['-23.518581, -46.502560', -23.518581, -46.502560, 31],           
+     ['-23.516850, -46.509255', -23.516850, -46.509255, 32],   
+     ['-23.513820, -46.507023', -23.513820, -46.507023, 33], 
+     ['-23.517794, -46.508182', -23.517794, -46.508182, 34], 
+     ['-23.515039, -46.503933', -23.515039, -46.503933, 35], 
+     ['-23.517873, -46.504534', -23.517873, -46.504534, 36], 
+     ['-23.521965, -46.502732', -23.521965, -46.502732, 37], 
+     ['-23.524601, -46.503633', -23.524601, -46.503633, 38], 
+     ['-23.524759, -46.506251', -23.524759, -46.506251, 39], 
+     ['-23.527238, -46.504534', -23.527238, -46.504534, 40], 
+     ['-23.529008, -46.507195', -23.529008, -46.507195, 41], 
+     ['-23.527789, -46.511229', -23.527789, -46.511229, 42], 
+     ['-23.527198, -46.515563', -23.527198, -46.515563, 43], 
+     ['-23.522988, -46.514834', -23.522988, -46.514834, 44], 
+     ['-23.526333, -46.511744', -23.526333, -46.511744, 45],
+      ['-23.528379, -46.504663', -23.528379, -46.504663, 46], 
+     ['-23.528379, -46.509899', -23.528379, -46.509899, 47], 
+     ['-23.527435, -46.513890', -23.527435, -46.513890, 48], 
+     ['-23.522791, -46.501144', -23.522791, -46.501144, 49], 
+     ['-23.516141, -46.512001', -23.516141, -46.512001, 50], 
+     ['-23.518502, -46.508182', -23.518502, -46.508182, 51], 
+     ['-23.524051, -46.516078', -23.524051, -46.516078, 52], 
+     ['-23.515118, -46.506980', -23.515118, -46.506980, 53], 
+    ['-23.525703, -46.502989', -23.525703, -46.502989, 54], 
+     ['-23.526097, -46.507066', -23.526097, -46.507066, 55], 
+     ['-23.517243, -46.511100', -23.517243, -46.511100, 56], 
+     ['-23.519171, -46.515692', -23.519171, -46.515692, 57],
+     ['-23.516220, -46.501659', -23.516220, -46.501659, 58]
+      
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: new google.maps.LatLng(-23.522078, -46.508008),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    // Define the LatLng coordinates for the polygon.
+        var triangleCoords = [
+            {lat: -23.516889, lng: -46.515520},  
+            {lat: -23.521729, lng: -46.516851},  
+            {lat: -23.527907, lng: -46.516121},   
+            {lat: -23.529992, lng: -46.503890},    
+            {lat: -23.523893,  lng: -46.499341},  
+            {lat: -23.516417, lng: -46.500371},   
+            {lat: -23.513308,  lng: -46.506465}
+        ];
+
+        // Construct the polygon.
+        var bermudaTriangle = new google.maps.Polygon({
+          paths: triangleCoords,
+          strokeColor: '#FF5555',
+          strokeOpacity: 0.8,
+          strokeWeight: 3,
+          fillColor: '#FF0000',
+          fillOpacity: 0.06
+        });
+        bermudaTriangle.setMap(map);
+
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        animation: google.maps.Animation.DROP,
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+
+          //infowindow.setContent("<img src='https://www.gravatar.com/avatar/6cf2282285b6732cd55dc466492e6dca?s=200'>");
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        //   if (marker.getAnimation() !== null) {
+        //   marker.setAnimation(null);
+        // } else {
+        //   marker.setAnimation(google.maps.Animation.BOUNCE);
+        // }
+        }
+      })(marker, i));
+    }
+
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(-23.521886, -46.508182),
+      icon: 'logo.png', 
+      map: map
+    });
+
+
+   var images = [
+      ['imagem1.jpg', -23.523500, -46.501959, 1],
+      ['imagem2.jpg', -23.518620, -46.514104, 2],
+      ['imagem3.jpg', -23.524562, -46.515220, 3],
+      ['imagem4.jpg', -23.518463, -46.507538, 4],
+      ['imagem5.jpg', -23.526569, -46.507667, 5],
+      ['imagem6.jpg', -23.523854, -46.508826, 6]
+
+      
+    ];
+
+
+  for (i = 0; i < images.length; i++) {  
+    var icon = {
+      url: images[i][0], // url
+      scaledSize: new google.maps.Size(38, 38), // scaled size
+      origin: new google.maps.Point(0,0), // origin
+      anchor: new google.maps.Point(0, 0) // anchor
+    };
+
+
+     var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(images[i][1], images[i][2]),
+      icon: icon,
+      map: map
+    });
+
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+
+          var content = "<img width='140' src="+images[i][0]+" />";
+
+          //infowindow.setContent("<img src='https://www.gravatar.com/avatar/6cf2282285b6732cd55dc466492e6dca?s=200'>");
+          infowindow.setContent(content);
+          infowindow.open(map, marker);
+        //   if (marker.getAnimation() !== null) {
+        //   marker.setAnimation(null);
+        // } else {
+        //   marker.setAnimation(google.maps.Animation.BOUNCE);
+        // }
+        }
+      })(marker, i));
+   }
+
+
+      
+  </script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple markers</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+      function initMap() {
+        var myLatLng = {lat: -25.363, lng: 131.044, lat: -25.3798, lng: 132.044};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfXgMUO82be1sHgJlXHdg4JkTgN7qtm-M&callback=initMap">
+    </script>
+  </body>
+</html> -->

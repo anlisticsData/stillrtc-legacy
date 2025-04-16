@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:id="@+id/menulockscreen"
+        android:icon="@android:drawable/ic_lock_lock"
+        android:title="menulockscreen"
+        android:alphabeticShortcut="a"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/finishoperation"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="Sair da Operação"
+        android:alphabeticShortcut="s"
+        app:showAsAction="collapseActionView" />
+    <item android:id="@+id/menucloseoperation"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="Finalizar Operação"
+
+        android:alphabeticShortcut="b"
+        />
+
+    <item android:id="@+id/menusyncronized"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="Sincronizar Operação"
+
+        android:alphabeticShortcut="b"
+        />
+
+</menu>
+

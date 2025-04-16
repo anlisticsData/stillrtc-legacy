@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="policy_logo_content_description">
+        Logo do Still App
+    </string>
+    <string name="policy_gps_title">
+        Uso do GPS
+    </string>
+    <string name="policy_gps_content">
+     O Still Rtc coleta dados de localização para ativar os roteiros pré-definidos,
+        auxílio de percurso por voz, e notificações mesmo quando o aplicativo está
+        fechado ou não está em uso, esses recursos são essenciais para validar se não
+        existe fraude no trabalho realizado pelo usuário.
+    </string>
+    <string name="policy_phone_state_title">
+        Estado do Telefone
+    </string>
+    <string name="policy_phone_state_content">
+        Realizamos a coleta dos dados de bateria e localização para o monitoramento do serviço.
+    </string>
+    <string name="policy_storage_title">
+        Armazenamento
+    </string>
+    <string name="policy_storage_content">
+        Registramos no banco de dados deste dispositivo dados referentes as operações e fotos.
+    </string>
+    <string name="policy_over_screens_title">
+        Sobreposição de Telas
+    </string>
+    <string name="policy_over_screens_content">
+        Permitir que a Tela do Still Rtc se sobreponha a de outros aplicativos enquanto estiver
+        em modo de operação.
+    </string>
+    <string name="policy_phone_informations_title">
+        Informação do Telefone
+    </string>
+    <string name="policy_phone_informations_content">
+        Permitir acesso  as informação anônimas do dispositivo para gerenciamento das tarefas realizas
+        e melhorias, essas informações são: uso do GPS, armazenamento, câmera, bateria e firmware.
+    </string>
+    <string name="policy_agree_button">
+        Concordar e Prosseguir
+    </string>
+    <string name="policy_agree_accordingly_button">
+        Continuar
+    </string>
+
+    <string name="policy_more_information">
+        Mais Informações
+    </string>
+</resources>

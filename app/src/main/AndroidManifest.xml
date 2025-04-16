@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:versionCode="1"
+    android:versionName="1.0.0">
+
+    <uses-sdk
+        android:maxSdkVersion="33"
+        android:minSdkVersion="25"
+        android:targetSdkVersion="33" />
+
+    <uses-permission
+        android:name="android.permission.REQUEST_INSTALL_PACKAGES"
+        tools:node="remove" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+
+    <uses-permission
+        android:name="android.permission.LOCATION_HARDWARE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- Include required permissions for Google Mobile Ads to run. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="Android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+    <uses-permission android:name="android.permission.ROLE_CALL_SCREENING" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="com.android.launcher. .INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_logo"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
+        <activity android:name="br.com.stilldistribuidora.partners.views.SlowInternet"
+            android:exported="true" />
+
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.NetworkActivity2"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.ar.core"
+            android:value="optional" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-xxxxxxxxxxxxxxxx~yyyyyyyyyy" />
+
+        <activity android:name="br.com.stilldistribuidora.common.views.NetworkActivity" />
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.VirtualStoreActivity"
+            android:exported="false" />
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.HomeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.HomeWebView"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.DeliveryInformation"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+
+
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.SelectcaraudioActivity"
+            android:exported="false" />
+
+
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.GaleriaOperationViewActivity"
+            android:exported="false" />
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.PartnersFinishOperationActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.gms.wallet.api.enabled"
+            android:value="true" />
+
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.viewingOperationActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.CancelOperationActivity"
+            android:exported="false" />
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.whereAmTheMapActivity"
+            android:exported="false" />
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.ResetPassword"
+            android:allowBackup="true"
+            android:exported="false"
+            android:label="@string/reset"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.OpcomingOperations"
+            android:allowBackup="true"
+            android:exported="false"
+            android:label="@string/reset"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
+        <meta-data
+            android:name="com.google.android.gms.wallet.api.enabled"
+            android:value="true" />
+
+        <activity
+            android:name=".ui.activities.SearchActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.HomeParceiro"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.TermsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.DadosBancariosActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.RegisterPartnersActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="br.com.stilldistribuidora.pco.ui.configs"
+            android:exported="false" />
+        <activity
+            android:name="br.com.stilldistribuidora.pco.ui.detalhes_fotos"
+            android:exported="false" />
+        <activity
+            android:name="br.com.stilldistribuidora.pco.ui.grafica_finalizar"
+            android:exported="false" />
+        <activity
+            android:name="br.com.stilldistribuidora.pco.ui.grafica_em_transporte"
+            android:exported="false" />
+        <activity
+            android:name="br.com.stilldistribuidora.pco.ui.start_movimento"
+            android:exported="false" />
+        <activity
+            android:name="br.com.stilldistribuidora.pco.ui.movimentos_list_grf"
+            android:exported="false" />
+        <activity
+            android:name="br.com.stilldistribuidora.pco.ui.LoginPco"
+            android:exported="false" />
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.PrivacyPolicyActivity"
+            android:exported="false" />
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.LoginAppActivity"
+            android:exported="false" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity
+            android:name=".ui.activities.InitAppActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.provider.MediaStore.RECORD_SOUND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="audio/*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activities.MapsActivity"
+            android:allowBackup="true"
+            android:exported="false"
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activities.PrefsActivity"
+            android:allowBackup="true"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activities.LoginActivity"
+            android:allowBackup="true"
+            android:exported="false"
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activities.MapWebViewActivity"
+            android:allowBackup="true"
+            android:exported="false"
+            android:label="@string/title_maps"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activities.DeviceOperationsActivity"
+            android:allowBackup="true"
+            android:exported="false"
+            android:label="@string/title_activity_delivery_fragments"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.CarRouteGuidanceActivity"
+            android:allowBackup="true"
+            android:exported="false"
+            android:label="@string/title_activity_delivery_fragments"
+            android:supportsPictureInPicture="true"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+
+
+
+        <activity
+            android:name=".ui.activities.OperationDetailsActivity"
+            android:allowBackup="true"
+            android:exported="false"
+            android:label="@string/title_activity_delivery_fragments"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activities.StoresActivity"
+            android:allowBackup="true"
+            android:exported="false"
+            android:label="@string/title_stores"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activities.DeliveriesActivity"
+            android:allowBackup="true"
+            android:exported="false"
+            android:label="@string/title_deliveres"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activities.SupervisorActivity"
+            android:allowBackup="true"
+            android:exported="false"
+            android:label="@string/title_supervisor"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activities.Supervisor_maps"
+            android:allowBackup="true"
+            android:exported="false"
+            android:label="@string/title_supervisor"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activities.NavegarInPoints"
+            android:allowBackup="true"
+            android:exported="false"
+            android:label="@string/title_supervisor"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activities.TiposDeAcessos"
+            android:allowBackup="true"
+            android:exported="false"
+            android:label="@string/title_acessos"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activities.OpslistagenActivity"
+            android:allowBackup="true"
+            android:exported="false"
+            android:label="@string/title_operacao_simultaneas"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activities.PrefsActivitySimutaneas"
+            android:allowBackup="true"
+            android:exported="false"
+            android:label="@string/title_operacao_simultaneas"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.MyOperations"
+            android:allowBackup="true"
+            android:exported="false"
+            android:label="@string/title_operacao_configurations"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.RouteGuidanceActivity"
+            android:allowBackup="true"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:exported="false"
+            android:label="@string/title_operacao_configurations"
+            android:screenOrientation="portrait"
+            android:supportsPictureInPicture="true"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.NextOperations"
+            android:allowBackup="true"
+            android:exported="false"
+            android:label="@string/title_operacao_configurations"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="br.com.stilldistribuidora.partners.views.MyDataActivity"
+            android:allowBackup="true"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:supportsPictureInPicture="true" />
+
+        <service
+            android:name="br.com.stilldistribuidora.partners.Services.SynchronizationOfOperations"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name=".services.ServiceDeviceStatus"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name=".services.ServiceApp"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name="br.com.stilldistribuidora.partners.Services.ServicesApiStill"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name="br.com.stilldistribuidora.partners.views.core.services.GpsPartners"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name="br.com.stilldistribuidora.pco.servicos.ServiceAppGrafica"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="060dbe7279be05c2ff1cf822f8c822c5c82c2492" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+    </application>
+
+</manifest>

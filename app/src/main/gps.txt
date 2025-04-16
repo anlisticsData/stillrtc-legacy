@@ -1,0 +1,324 @@
+package com.example.localizadorgps;
+
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.ScrollView;
+import android.content.BroadcastReceiver;
+
+
+public class MainActivity extends Activity implements LocationListener
+{
+     
+   private int precisaoMinimaExigida=2000;    // Precisão do serviço de localização em metros.
+
+   private int intervaloTempoLeituraGPS=5000; // De quanto em quanto tempo (milissegundos) avisará que mudou de posição.
+   private int distanciaLeituraGPS=0;         // De quantos em quantos metros avisará que mudou a posição.
+
+   private int intervaloTempoREDE=5000;       // De quanto em quanto tempo (milissegundos) avisará que mudou de posição.
+   private int distanciaREDE=0;               // De quantos em quantos metros avisará que mudou posição.
+   
+   // Define os elementos visuais para exposição das informações no dispositivo.
+   private EditText editTextPosicoes;
+   private ScrollView scroller;
+
+   // Define o gerenciador de localização.
+   private LocationManager locationManager;
+      
+   // Filtro para definir o evento de broadcast que o app aguardará.
+   // No caso "android.location.LocationManager.PROVIDERS_CHANGED_ACTION".
+   private IntentFilter filter;
+   
+   // Caixa de diálogo para interação com o usuário.
+   private AlertDialog alert;
+   
+   // Variáveis de controle dos provedores de localização habilitados na configuração do Android.
+   private Boolean provedorGPS_Habilitado;
+   private Boolean provedorREDE_Habilitado;
+
+   // Cria um Broadcast Receiver para que a MainActivity seja avisada caso o usuário mude as configurações de localização por fora do app
+   // (deslizando a tela para baixo e clicando no ícone do GPS, por exemplo).
+   // Isso é necessário porque durante a execução, o usuário tem como mudar as configurações de localização sem usar o próprio aplicativo.
+   BroadcastReceiver bReceiver = new BroadcastReceiver()
+   {      
+      @Override
+      public void onReceive(Context arg0, Intent arg1)
+      {         
+         // Chama o método que localiza o usuário.
+         localizarUsuario();         
+      }
+   };
+
+   
+   @Override
+   protected void onCreate(Bundle savedInstanceState)
+   {
+      super.onCreate(savedInstanceState);     
+      setContentView(R.layout.activity_main);
+
+      // Registra o receiver para que o app seja avisado quando o usuário modificar as configurações de localização do dispositivo.
+      filter = new IntentFilter(android.location.LocationManager.PROVIDERS_CHANGED_ACTION);
+      this.registerReceiver(bReceiver, filter);      
+      
+      // Obtém o editText para usar como saída, na tela do dispositivo.
+      editTextPosicoes=(EditText) findViewById(R.id.editTextPosicoes);
+      editTextPosicoes.setEnabled(false);           
+      
+      // Obtém o scroller, para permitir a rolagem da caixa de texto onde são exibidas as posições.
+      scroller=(ScrollView) findViewById(R.id.scroller);
+
+      // Limpa o editText.
+      editTextPosicoes.setText("");
+            
+      // Chama o método que localiza o usuário.
+      localizarUsuario();
+            
+   }
+
+   public void localizarUsuario()
+   {
+
+      // Este método efetivamente realiza a localização do usuário, configurando um "locationManager".
+      // Através do locationManager o dispositivo utiliza ou o GPS ou a REDE para descobrir a localização
+      // do usuário. Note que, na configuração do aparelho, podem estar habilitados ambos os métodos,
+      // algum deles, ou nenhum. Para cada caso, uma mensagem de alerta deverá ser mostrada, 
+      // questionando o usuário se deseja ligar as ferramentas de localização.
+      
+      try
+      {
+                  
+         // Obtém o locationManager.
+         locationManager=(LocationManager) getSystemService(getApplicationContext().LOCATION_SERVICE);
+
+         // Há provedores de localização diversos.
+         // O GPS_PROVIDER usa o hardware de GPS dispositivo para obter localização via satélite.
+         // O NETWORK_PROVIDER obterá a localização a partir da triangulação de antenas da rede de telefonia celular.
+
+         // Verifica se os provedores de localização estão habilitados.
+         provedorREDE_Habilitado=locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+         provedorGPS_Habilitado=locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+
+         
+         // Caso não haja nenhum provedor de localização habilitado...
+         if (!provedorREDE_Habilitado && !provedorGPS_Habilitado)
+         {
+                     
+            // Não há provedores de localização habilitados.
+            // Perguntar ao usuário se deseja habilitar.
+            
+            // Monta a caixa de diálogo.
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+            alertDialogBuilder
+                  .setMessage("O serviço de localização está desabilitado. Deseja mudar a configuração?")
+                  .setCancelable(false)
+                  .setPositiveButton("Configurar",  new DialogInterface.OnClickListener()
+                  {
+                     public void onClick(DialogInterface dialog, int id)
+                     {
+                        abreConfiguracaoDoDispositivo();
+                     }
+                  });
+            
+            alertDialogBuilder.setNegativeButton("Cancelar",  new DialogInterface.OnClickListener()
+            {
+               public void onClick(DialogInterface dialog, int id)
+               {
+                  dialog.cancel();
+                  editTextPosicoes.setText("Selecione uma forma de obter a localização\npelo menu Configurar.");
+               }
+            });
+         
+            alert = alertDialogBuilder.create();
+            
+            // Mostra a caixa de diálogo.
+            if (!alert.isShowing())
+            {
+               alert.show();
+            }
+
+            
+         }
+         else
+         {
+            // Limpa o editText.
+            editTextPosicoes.setText("");
+            
+            // Se serviço de localização já foi configurado...
+            if (provedorGPS_Habilitado)
+            {
+               configuraProvedorGPS();
+            }
+            else
+            {
+               
+               // Caso apenas o serviço de localização por REDE esteja habilitado, sugere o GPS.
+               
+               // Monta a caixa de diálogo.
+               AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+               alertDialogBuilder
+                     .setMessage("Gostaria de habilitar o GPS para uma precisão maior?")
+                     .setCancelable(false)
+                     .setPositiveButton("Sim",  new DialogInterface.OnClickListener()
+                     {
+                        public void onClick(DialogInterface dialog, int id)
+                        {
+                           abreConfiguracaoDoDispositivo();
+                        }
+                     });
+               
+               alertDialogBuilder.setNegativeButton("Não",  new DialogInterface.OnClickListener()
+               {
+                  public void onClick(DialogInterface dialog, int id)
+                  {
+                     dialog.cancel();
+                     configuraProvedorREDE();
+                  }
+               });
+            
+               alert = alertDialogBuilder.create();
+               
+               // Mostra a caixa de diálogo.
+               if (!alert.isShowing())
+               {
+                  alert.show();
+               }
+
+            }
+            
+         }
+         
+      }
+      catch (Exception e)
+      {
+         Log.i("gps", e.getMessage() + " " + e.getLocalizedMessage());
+      }
+   }
+
+   public void abreConfiguracaoDoDispositivo()
+   {
+      // Este método abre a tela de congifuração de localização do dispositivo.
+      
+      Intent callGPSSettingIntent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+      (MainActivity.this).startActivity(callGPSSettingIntent);     
+   }
+   
+   
+   public void configuraProvedorGPS()
+   {
+
+      // minTimeGPS é de quanto em quanto tempo (em milissegundos), a informação da localização será atualizada via GPS.
+      // minDistanceGPS é de quantos em quantos metros a informação da localização será atualizada via GPS.
+      long minTimeGPS=intervaloTempoLeituraGPS;
+      long minDistanceGPS=distanciaLeituraGPS;
+
+      // Configura o locationManager para chamar o método OnLocationChanged() de acordo com as premissas estabelecidas.
+      locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, minTimeGPS, minDistanceGPS, this);
+   }
+
+   public void configuraProvedorREDE()
+   {
+      
+      // minTimeNETWORK é de quanto em quanto tempo (em milissegundos), a informação da localização será atualizada via triangulação de antenas.
+      // minDistanceNETWORK é de quantos em quantos metros a informação da localização será atualizada via via triangulação de antenas.
+      long minTimeNETWORK=intervaloTempoREDE;
+      long minDistanceNETWORK=distanciaREDE;
+
+      // Configura o locationManager para chamar o método OnLocationChanged() de acordo com as premissas estabelecidas.
+      locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, minTimeNETWORK, minDistanceNETWORK, this);
+   }
+   
+   
+   @Override
+   public void onLocationChanged(Location location)
+   {
+      // Este método será chamado toda vez que houver uma atualização da localização do usuário.
+      // A atualização da localização ocorre de acordo com o configurado no locationManager.
+
+      try
+      {
+         
+         // Obtém a informação da precisão da localização, em metros.
+         float precisao=location.getAccuracy();
+
+         // Se a precisão for menor ou igual à precisão mínima exigida (em metros), então mostra a localização na tela.
+         // A precisão mínima exigida depende da aplicação.
+         if (precisao <= precisaoMinimaExigida)
+         {
+            // Compõe o texto de saída e acrescenta à caixa de texto.
+            String latitude = String.valueOf(location.getLatitude()).substring(0, 10);
+            String longitude = String.valueOf(location.getLongitude()).substring(0, 10);
+            String novaLinha = location.getProvider() + ": " + latitude + "," + longitude + ", raio:  " + precisao + " m\n" ;
+            editTextPosicoes.append( novaLinha );
+            
+            // Rola o texto da caixa para baixo.
+            scroller.smoothScrollTo(0, editTextPosicoes.getBottom());
+            
+         }
+      }
+      catch (Exception e)
+      {
+      }
+
+   }
+
+   @Override
+   public void onProviderDisabled(String provider)
+   {
+   }
+
+   @Override
+   public void onProviderEnabled(String provider)
+   {     
+   }
+
+   @Override
+   public void onStatusChanged(String provider, int status, Bundle extras)
+   {
+   }
+        
+   @Override
+   protected void onDestroy()
+   {
+      super.onDestroy();
+      
+      // Desregistra o Broadcast Receiver.
+      unregisterReceiver(bReceiver);
+   }
+   
+   @Override
+   public boolean onCreateOptionsMenu(Menu menu)
+   {
+      // Inflate the menu; this adds items to the action bar if it is present.
+      getMenuInflater().inflate(R.menu.main, menu);
+
+      return true;
+   }
+   
+   @Override
+   public boolean onOptionsItemSelected(MenuItem item)
+   {
+      // Lida com os itens do menu selecionáveis pelo usuário.
+      switch (item.getItemId())
+      {
+         case R.id.action_settings:
+            abreConfiguracaoDoDispositivo();
+            break;
+      }
+      
+      return super.onOptionsItemSelected(item);
+   }
+
+   
+
+}

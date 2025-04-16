@@ -1,0 +1,242 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'kotlin-android-extensions'
+
+
+dependencies {
+    implementation 'com.google.ar:core:1.12.0'
+
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabric.io/public' }
+
+}
+
+
+
+
+
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
+
+
+    }
+}
+
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+
+android {
+
+    useLibrary 'org.apache.http.legacy'
+    defaultConfig {
+        minSdkVersion 23
+        compileSdk 34
+        targetSdkVersion 33
+        applicationId "br.com.stilldistribuidora.stillrtc_2_80"    // RELEASE
+        versionCode 26
+        versionName "1.6.0"
+
+
+        renderscriptTargetApi 23
+        renderscriptSupportModeEnabled true
+
+        // Enabling multidex support.
+        multiDexEnabled true
+
+        testInstrumentationRunner
+        "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            res.srcDirs = [
+                    'src/main/res/layouts/layouts_category2',
+                    'src/main/res/layouts',
+                    'src/main/res'
+            ]
+        }
+    }
+    productFlavors {
+    }
+    ndkVersion '23.0.7599858'
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+/*
+dependencies {
+    implementation 'androidx.work:work-runtime:2.7.0-alpha04'
+    implementation "commons-codec:commons-codec:1.11"
+    implementation 'com.google.android.material:material:1.6.0-alpha03'
+    //implementation 'com.google.android.libraries.places:places:2.4.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.camera:camera-core:1.1.0-alpha03'
+    implementation 'androidx.navigation:navigation-runtime:2.4.2'
+    implementation 'com.google.ar:core:1.25.0'
+    //implementation 'com.google.android.libraries.places:places:2.4.0'
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    //noinspection GradleCompatible
+    implementation 'com.google.android.material:material:1.0.0'
+    //noinspection GradleCompatible
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    //  implementation 'com.google.android.gms:play-services:10.0.1'
+
+    implementation 'com.google.android.gms:play-services:12.0.1'
+    //implementation 'com.google.android.gms:play-services-safetynet:18.0.1'
+
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    //noinspection GradleCompatible
+    implementation 'androidx.cardview:cardview:1.0.0'
+    // push notification
+    //noinspection GradleCompatible
+    implementation 'com.google.firebase:firebase-messaging:9.6.1'
+    // glide for images
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    // maps utils
+    implementation 'com.google.maps.android:android-maps-utils:0.4+'
+    // datetimepicker
+    implementation 'com.wdullaer:materialdatetimepicker:3.2.1'
+    implementation 'androidx.test.espresso:espresso-core:3.1.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.cardview:cardview:1.0.0'
+}
+*/
+/*
+crashlytics {
+    enableNdk false
+    androidNdkOut 'src/main/obj'
+    androidNdkLibsOut 'src/main/libs'
+}
+*/
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+//apply plugin: 'io.fabric'
+apply plugin: 'kotlin-android-extensions'
+
+dependencies {
+    implementation 'com.google.ar:core:1.12.0'
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+
+
+
+
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
+
+
+    }
+}
+
+android {
+
+    namespace 'br.com.stilldistribuidora.stillrtc'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+
+dependencies {
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+
+    implementation 'androidx.work:work-runtime:2.7.0-alpha04'
+    implementation "commons-codec:commons-codec:1.11"
+    implementation 'com.google.android.material:material:1.6.0-alpha03'
+    //implementation 'com.google.android.libraries.places:places:2.4.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.camera:camera-core:1.1.0-alpha03'
+    implementation 'androidx.navigation:navigation-runtime:2.4.2'
+    implementation 'com.google.ar:core:1.25.0'
+    //implementation 'com.google.android.libraries.places:places:2.4.0'
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    //noinspection GradleCompatible
+    implementation 'com.google.android.material:material:1.0.0'
+    //noinspection GradleCompatible
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    //  implementation 'com.google.android.gms:play-services:10.0.1'
+
+    implementation 'com.google.android.gms:play-services:12.0.1'
+    //implementation 'com.google.android.gms:play-services-safetynet:18.0.1'
+
+    testImplementation 'junit:junit:4.12'
+
+    //noinspection GradleCompatible
+    implementation 'androidx.cardview:cardview:1.0.0'
+    // push notification
+    //noinspection GradleCompatible
+    implementation 'com.google.firebase:firebase-messaging:9.6.1'
+    // glide for images
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    // maps utils
+    implementation 'com.google.maps.android:android-maps-utils:0.4+'
+    // datetimepicker
+    implementation 'com.wdullaer:materialdatetimepicker:3.2.1'
+    implementation 'androidx.test.espresso:espresso-core:3.1.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.cardview:cardview:1.0.0'
+}
+
+/*
+crashlytics {
+    enableNdk false
+    androidNdkOut 'src/main/obj'
+    androidNdkLibsOut 'src/main/libs'
+}
+*/

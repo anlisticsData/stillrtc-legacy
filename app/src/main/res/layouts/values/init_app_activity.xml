@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="init_app_activity_title">
+        Configurações de Conexão
+    </string>
+    <string name="init_app_activity_url_api">
+        URL/API
+    </string>
+    <string name="init_app_activity_url_rtc_web">
+        URL/RTC Web
+    </string>
+    <string name="init_app_activity_button">
+        Aplicar e Prosseguir
+    </string>
+</resources>

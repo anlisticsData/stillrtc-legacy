@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:elevation="0dp">
+        <!--app:layout_scrollFlags="scroll|enterAlways"-->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/borda_arredondada_card_normal"
+                android:padding="3dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+
+                    android:layout_marginTop="1dp">
+
+                    <fragment
+                        android:id="@+id/map"
+                        android:name="com.google.android.gms.maps.SupportMapFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="509dp"
+                        android:background="@drawable/borda_arredondada_card_normal" />
+
+
+                    <LinearLayout
+                        android:padding="15dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                      <LinearLayout
+                          android:visibility="gone"
+                          android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:orientation="horizontal">
+
+
+                          <Button
+                              android:id="@+id/btnGaleriaAtiva"
+                              android:layout_weight="1"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:text="Fotos"/>
+
+                          <TextView
+                              android:id="@+id/displayTime"
+                              android:textSize="25dp"
+                              android:layout_weight="1"
+                              android:layout_gravity="center"
+                              android:textAlignment="center"
+                              android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:text="00:00:00"/>
+
+                      </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_marginBottom="25dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+
+                        <TextView
+                            android:textSize="25dp"
+                            android:layout_weight="1"
+                            android:padding="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Detalhes da Operação" />
+
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:padding="5dp"
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Código" />
+
+                                <TextView
+                                    android:id="@+id/operationDeliveryId"
+                                    android:textAlignment="center"
+                                    android:textSize="26sp"
+                                    android:padding="5dp"
+                                    android:layout_weight="1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="123456" />
+
+                            </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:padding="5dp"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Código da Rota" />
+
+                            <TextView
+                                android:id="@+id/operationRouterId"
+                                android:textAlignment="center"
+                                android:textSize="26sp"
+                                android:padding="5dp"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="005" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:padding="5dp"
+                                android:layout_gravity="center"
+
+                                android:layout_weight="2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="Descrição da Loja" />
+
+                            <TextView
+                                android:id="@+id/storeName"
+                                android:textAlignment="center"
+                                android:textSize="26sp"
+                                android:padding="5dp"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="asdsadasdasdasddasdasdasdasdas" />
+
+                        </LinearLayout>
+
+
+
+
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/controles"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:padding="15dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:visibility="gone"
+                                    android:id="@+id/fotoview"
+                                    android:layout_width="149dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:padding="5dp"
+                                    android:src="@drawable/ic_add_a_photo_black_24dp"
+                                    app:srcCompat="@drawable/ic_add_a_photo_black_24dp"
+                                    tools:srcCompat="@drawable/ic_add_a_photo_black_24dp" />
+                                <Button
+                                    android:visibility="gone"
+                                    android:id="@+id/btnInitCronometro"
+                                    android:padding="5dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/borda_arredondada_card_normal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:text="INICIAR."/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:padding="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <Button
+                                    android:visibility="gone"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginBottom="15dp"
+                                    android:padding="5dp"
+                                    android:background="@drawable/borda_arredondada_card_normal_blue"
+                                    android:id="@+id/Navegador"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:text="Ir Roterizador"/>
+
+
+                                <Button
+                                    android:visibility="gone"
+                                    android:padding="5dp"
+                                    android:background="@drawable/borda_arredondada_card_normal"
+                                    android:id="@+id/operationPaused"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:text="Pausar"/>
+
+                                <Button
+                                    android:visibility="gone"
+                                    android:padding="5dp"
+                                    android:layout_marginTop="5dp"
+                                    android:background="@drawable/borda_arredondada_card_normal"
+
+                                    android:id="@+id/btnStopitCronometro"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Parar"/>
+
+                            </LinearLayout>
+
+
+
+
+
+
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </ScrollView>
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>
+

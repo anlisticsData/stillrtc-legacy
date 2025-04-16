@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_status_server"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="Item"
+        android:visible="false"
+        app:showAsAction="always" />
+    <item
+        android:icon="@drawable/ic_widgets_black_32dp"
+        android:title="@string/btn_settings"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/active_stop_rtc"
+                android:title="@string/finalizar" />
+
+        </menu>
+    </item>
+</menu>
